@@ -4,7 +4,7 @@ import edu.school21.preprocessor.PreProcessor;
 import edu.school21.render.Renderer;
 
 public class RendererErrImpl implements Renderer {
-    private PreProcessor preProcessor;
+    private final PreProcessor preProcessor;
 
     public RendererErrImpl(PreProcessor preProcessor) {
         this.preProcessor = preProcessor;

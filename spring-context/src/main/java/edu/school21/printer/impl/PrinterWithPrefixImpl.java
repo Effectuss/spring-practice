@@ -4,7 +4,7 @@ import edu.school21.printer.Printer;
 import edu.school21.render.Renderer;
 
 public class PrinterWithPrefixImpl implements Printer {
-    private Renderer renderer;
+    private final Renderer renderer;
 
     private String prefix;
 

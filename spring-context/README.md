@@ -49,7 +49,7 @@ Using these components with Spring looks as follows:
 public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
-        Printer printer = context.getBean(“printerWithPrefix”, Printer.class);
+        Printer printer = context.getBean("printerWithPrefix", Printer.class);
         printer.print("Hello!");
     }
 }

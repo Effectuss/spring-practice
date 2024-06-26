@@ -6,7 +6,7 @@ import edu.school21.render.Renderer;
 import java.time.LocalDateTime;
 
 public class PrinterWithDateTimeImpl implements Printer {
-    private Renderer renderer;
+    private final Renderer renderer;
 
     public PrinterWithDateTimeImpl(Renderer renderer) {
         this.renderer = renderer;
