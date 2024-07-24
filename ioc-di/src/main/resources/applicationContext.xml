@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:app.properties"/>
+
+    <bean id="myPet"
+          class="edu.panov.spring.pets.impl.Cat">
+    </bean>
+
+    <bean id="dog"
+          class="edu.panov.spring.pets.impl.Dog">
+    </bean>
+
+
+    <bean id="myPersonWithoutName"
+          class="edu.panov.spring.person.Person">
+        <constructor-arg ref="dog"/>
+
+        <property name="age" value="123"/>
+        <property name="name" value="Kirill"/>
+    </bean>
+
+    <bean id="myPerson"
+          class="edu.panov.spring.person.Person">
+        <property name="pet" ref="myPet"/>
+        <property name="age" value="${person.age}"/>
+        <property name="name" value="${person.name}"/>
+    </bean>
+</beans>
