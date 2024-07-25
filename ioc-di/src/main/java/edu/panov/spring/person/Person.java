@@ -7,13 +7,14 @@ import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
-    @Autowired
-    private @Qualifier("dog") Pet pet;
+    private Pet pet;
+
     private String name;
+
     private int age;
 
-
-    public Person(Pet pet) {
+    @Autowired
+    public Person(@Qualifier("dog") Pet pet) {
         System.out.println("Person created!");
         this.pet = pet;
     }
@@ -31,7 +32,7 @@ public class Person {
         pet.say();
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
