@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
-//@ComponentScan("edu.panov.spring")
+@ComponentScan("edu.panov.spring")
 public class MyConfig {
 
     @Bean
