@@ -19,6 +19,11 @@ public class UniversityLibraryService extends AbstractLibrary {
         System.out.println("printBook University Library Service");
     }
 
+    public String returnHardCodeBook() {
+        System.out.println("returnHardCodeBook University Library Service");
+        return "Война и мир";
+    }
+
     public void returnBook() {
         System.out.println("return book: university library service");
     }

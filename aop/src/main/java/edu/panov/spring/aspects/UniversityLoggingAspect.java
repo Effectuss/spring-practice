@@ -2,6 +2,7 @@ package edu.panov.spring.aspects;
 
 import edu.panov.spring.model.Student;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -34,5 +35,10 @@ public class UniversityLoggingAspect {
     public void afterThrowingGetStudentsAdvice(JoinPoint joinPoint, Throwable exception) {
         System.out.println(exception.getMessage());
         System.out.println("AfterThrowingGetStudentsAdvice getStudents");
+    }
+
+    @After("execution(* getStudentrs(..))")
+    public void afterGetStudentsAdvice(JoinPoint joinPoint) {
+        System.out.println("afterGetStudentsAdvice");
     }
 }
