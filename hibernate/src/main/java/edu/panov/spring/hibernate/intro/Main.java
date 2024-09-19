@@ -1,6 +1,6 @@
-package edu.panov.spring;
+package edu.panov.spring.hibernate.intro;
 
-import edu.panov.spring.entity.Employee;
+import edu.panov.spring.hibernate.intro.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

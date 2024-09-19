@@ -1,10 +1,13 @@
-package edu.panov.spring.entity;
+package edu.panov.spring.hibernate.onetoone.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +38,10 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
+
+    @OneToOne(cascade =  CascadeType.ALL)
+    @JoinColumn(name = "details_id")
+    private Detail employeeDetail;
 
     public Employee(String name, String surname, String department, int salary) {
         this.name = name;
