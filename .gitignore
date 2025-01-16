@@ -30,5 +30,5 @@ StructuresAndArrays/.idea
 *.iml
 *target
 chat.iml
-*.gradle
 *build
+.gradle
