@@ -32,3 +32,4 @@ StructuresAndArrays/.idea
 chat.iml
 *build
 .gradle
+out
