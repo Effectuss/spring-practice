@@ -14,5 +14,8 @@
 <h2>
     This is first view from spring MVC!!!
 </h2>
+<br>
+
+<a href="askDetails"> Please write your details</a>
 </body>
 </html>
