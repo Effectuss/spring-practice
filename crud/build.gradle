@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'edu.panov.spring'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = '6.0.0'
+}
+
+sourceCompatibility = '1.17'
+targetCompatibility = '1.17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation "org.springframework:spring-context:${springVersion}"
+    implementation "org.springframework:spring-beans:${springVersion}"
+    implementation "org.springframework:spring-core:${springVersion}"
+    implementation "org.springframework:spring-webmvc:${springVersion}"
+
+    implementation 'jakarta.el:jakarta.el-api:6.0.0'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    implementation("org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0")
+}
+
+test {
+    useJUnitPlatform()
+}
