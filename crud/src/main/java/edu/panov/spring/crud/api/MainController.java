@@ -1,4 +1,4 @@
-package edu.panov.spring.crud;
+package edu.panov.spring.crud.api;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -11,7 +11,7 @@ repositories {
 }
 
 ext {
-    springVersion = '6.0.0'
+    springVersion = '6.2.1'
 }
 
 sourceCompatibility = '1.17'
@@ -26,10 +26,20 @@ dependencies {
     implementation "org.springframework:spring-beans:${springVersion}"
     implementation "org.springframework:spring-core:${springVersion}"
     implementation "org.springframework:spring-webmvc:${springVersion}"
+    implementation "org.springframework:spring-orm:${springVersion}"
+
 
     implementation 'jakarta.el:jakarta.el-api:6.0.0'
     compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
     implementation("org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0")
+
+    implementation("org.postgresql:postgresql:42.7.3")
+    implementation("org.hibernate.orm:hibernate-core:6.6.0.Final")
+    implementation 'com.zaxxer:HikariCP:6.0.0'
+
+
+    compileOnly("org.projectlombok:lombok:1.18.34")
+    annotationProcessor ("org.projectlombok:lombok:1.18.24")
 }
 
 test {
