@@ -20,7 +20,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    @Transactional
     public List<Employee> findAll() {
         Query<Employee> query = sessionFactory.getCurrentSession().createQuery(
                 "from Employee", Employee.class
