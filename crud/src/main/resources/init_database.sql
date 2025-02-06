@@ -1,5 +1,13 @@
 create user crud with login password 'crud';
+
+GRANT ALL PRIVILEGES ON TABLE employees TO crud;
+
 create database crud owner crud encoding 'utf8';
+
+SELECT current_user;
+
+SET ROLE crud;
+
 
 CREATE TABLE employees
 (
@@ -19,3 +27,5 @@ VALUES
     ),
     ('Nina', 'Sidorova', 'HR', 850
     );
+
+GRANT USAGE, SELECT ON SEQUENCE employees_id_seq TO crud;

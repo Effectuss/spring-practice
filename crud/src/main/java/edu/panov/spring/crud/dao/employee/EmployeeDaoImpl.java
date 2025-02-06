@@ -1,13 +1,14 @@
 package edu.panov.spring.crud.dao.employee;
 
 import edu.panov.spring.crud.entity.Employee;
-import jakarta.transaction.Transactional;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -26,5 +27,30 @@ public class EmployeeDaoImpl implements EmployeeDao {
         );
 
         return query.getResultList();
+    }
+
+    @Override
+    public void add(Employee employee) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        System.out.println("ADD " + employee.getId());
+
+        currentSession.merge(employee);
+    }
+
+    @Override
+    public Optional<Employee> get(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        System.out.println("GET " + Optional.of(currentSession.get(Employee.class, id).getId()).get().toString());
+        return Optional.of(currentSession.get(Employee.class, id));
+    }
+
+    @Override
+    public void delete(int id) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        currentSession.createMutationQuery("delete from Employee where id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
     }
 }
