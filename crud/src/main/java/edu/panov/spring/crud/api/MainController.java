@@ -45,7 +45,6 @@ public class MainController {
     @RequestMapping("/saveNewEmployee")
     public String saveNewEmployee(@ModelAttribute("employee") Employee employee) {
         employeeService.saveNewEmployee(employee);
-
         return "redirect:/";
     }
 
