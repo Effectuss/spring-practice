@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'edu.panov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = '6.2.1'
+    hibernateVersion = '6.6.0.Final'
+    jakartaVersion = '6.0.0'
+    jacksonVersion = '2.18.2'
+}
+
+sourceCompatibility = '1.17'
+targetCompatibility = '1.17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation "org.springframework:spring-context:${springVersion}"
+    implementation "org.springframework:spring-beans:${springVersion}"
+    implementation "org.springframework:spring-core:${springVersion}"
+    // добавляет поддержку spring rest
+    implementation "org.springframework:spring-webmvc:${springVersion}"
+    implementation "org.springframework:spring-orm:${springVersion}"
+
+    compileOnly "jakarta.servlet:jakarta.servlet-api:${jakartaVersion}"
+
+    implementation("org.postgresql:postgresql:42.7.3")
+    implementation("org.hibernate.orm:hibernate-core:${hibernateVersion}")
+    implementation 'com.zaxxer:HikariCP:6.0.0'
+
+    compileOnly("org.projectlombok:lombok:1.18.34")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
